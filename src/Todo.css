@@ -1,0 +1,289 @@
+/* === Full Page Vibrant Background (No rainbow animation) === */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5, #4ade80, #fbbf24, #f87171);
+  background-size: 400% 400%;
+  /* Removed rainbow animation for background */
+  /* animation: bgShift 15s ease infinite; */
+}
+
+/* === Container === */
+.todo-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* === Dark Mode Container === */
+.todo-container.dark {
+  background: rgba(20, 20, 30, 0.85);
+  color: #eee;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+}
+
+/* === Todo Heading with Rainbow Animated Text ONLY === */
+.todo-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #fbbf24, #f87171);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 8s ease infinite;
+}
+
+/* Keep same rainbow heading in dark mode */
+.todo-container.dark h2 {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #fbbf24, #f87171);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 8s ease infinite;
+}
+
+/* === Input field === */
+.todo-container input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  background: #ffffffcc;
+  backdrop-filter: blur(5px);
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+  color: #000;
+}
+
+/* Dark mode input */
+.todo-container.dark input[type="text"] {
+  background: #333a4dcc;
+  color: #eee;
+  box-shadow: none;
+}
+
+.todo-container input[type="text"]:focus {
+  box-shadow: 0 0 10px rgba(120, 115, 245, 0.5);
+}
+
+.todo-container.dark input[type="text"]:focus {
+  box-shadow: 0 0 10px #6c63ffaa;
+}
+
+/* === Centered Add Button Container === */
+.add-btn-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* === Buttons === */
+.todo-container button {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #6c63ff, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+}
+
+/* Dark mode buttons */
+.todo-container.dark button {
+  background: linear-gradient(135deg, #4b3bff, #7a4ef7);
+  color: #eee;
+  box-shadow: none;
+}
+
+.todo-container.dark button:hover {
+  box-shadow: 0 5px 15px rgba(75, 59, 255, 0.6);
+}
+
+/* === Todo List with colorful items === */
+.todo-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-container li {
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideFadeIn 0.4s ease forwards;
+  transition: transform 0.2s ease;
+  color: #fff;
+  font-weight: 500;
+  background: linear-gradient(
+    135deg,
+    hsl(calc(var(--i) * 50), 90%, 60%),
+    hsl(calc(var(--i) * 50 + 30), 90%, 60%)
+  );
+}
+
+.todo-container.dark li {
+  background: linear-gradient(
+    135deg,
+    hsl(calc(var(--i) * 50), 70%, 40%),
+    hsl(calc(var(--i) * 50 + 30), 70%, 40%)
+  );
+  color: #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.todo-container li:hover {
+  transform: scale(1.02);
+}
+
+.todo-container li span {
+  flex: 1;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+/* Buttons inside items */
+.todo-container li button {
+  background: rgba(255, 255, 255, 0.2);
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.todo-container.dark li button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #eee;
+}
+
+.todo-container li button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.todo-container.dark li button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* === Dark Mode Toggle Button Container === */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.top-bar .placeholder {
+  width: 100px; /* Same width as toggle button approx */
+}
+
+.top-bar h2 {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+/* === Dark Mode Toggle Button === */
+.dark-toggle-btn {
+  min-width: 100px; 
+  padding: 8px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #6c63ff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dark-toggle-btn:hover {
+  background: #574bdb;
+}
+
+/* === Animations === */
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rainbowShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Responsive Design === */
+@media (max-width: 600px) {
+  .todo-container {
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  .todo-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .todo-container input[type='text'] {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .todo-container button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .todo-container li span {
+    font-size: 14px;
+  }
+
+  .dark-toggle-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
